@@ -9,7 +9,7 @@ import AppContext from '../services/AppContext'
 
 function getIndexRoute(partialNextState, callback) {
     partialNextState.location.pathname == '/' && (partialNextState.location.pathname = '')
-    callback(null, { onEnter: (next, replace) => replace(partialNextState.location.pathname + '/index') });
+    callback(null, { onEnter: (next, replace) => replace(partialNextState.location.pathname + '/score') });
 }
 
 const rootRoutes = {
@@ -18,12 +18,22 @@ const rootRoutes = {
     getIndexRoute: getIndexRoute,
     childRoutes: [
         {
-            path: "index",
-            getComponents(nextState, callback) {
-                require.ensure([], function (require) {
-                    callback(null, require("../pages/App").default)
-                })
-            }
+            path: "score",
+            component: require("../pages/App").default,
+            childRoutes: [
+                {
+                    path: 'basic',
+                    component: require('../pages/BasicAnalysis/BasicAnalysis').default
+                },
+                {
+                    path: 'increment',
+                    component: require('../pages/IncrementAnalysis/IncrementAnalysis').default
+                },
+                {
+                    path:'map',
+                    component: require('../pages/MapAnalysis/MapAnalysis').default
+                }
+            ]
         },
 
     ]

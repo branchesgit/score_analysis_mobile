@@ -12,6 +12,7 @@ export default class App extends React.Component<any,any> {
     render() {
         return <div>
             <Menu/>
+            { this.props.children}
         </div>
     }
 }
