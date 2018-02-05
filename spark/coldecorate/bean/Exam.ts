@@ -13,7 +13,7 @@ export default class Exam extends AbstractColumn {
     }
 
     getColumnName() {
-        return this.examName;
+        return this.examID + "";
     }
 
     getDescription() {

@@ -14,7 +14,7 @@ export default class Subject extends AbstractColumn {
     }
 
     getColumnName() {
-        return [SCORE, this.subjectName].join(COLUMN_JOIN);
+        return [SCORE, this.subjectID].join(COLUMN_JOIN);
     }
 
     getDescription() {
