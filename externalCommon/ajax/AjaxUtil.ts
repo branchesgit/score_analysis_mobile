@@ -1,16 +1,16 @@
 
 import * as exCommonAjaxUtil from '../../../nicezhuanye_frontend_common/ajax/AjaxUtil.js'
-import {allActionMap, GlobalDatasource} from "../ExternalCommonConfig";
-import {getActionInfo} from "../privilege/ActionInfoUtil";
-import {mockDataByUrl} from "../mock/MockUtil";
-import {scoreServUrl} from "../const/CommonVar";
+import { allActionMap, GlobalDatasource } from "../ExternalCommonConfig";
+import { getActionInfo } from "../privilege/ActionInfoUtil";
+import { mockDataByUrl } from "../mock/MockUtil";
+import { scoreServUrl } from "../const/CommonVar";
 // import { Modal } from 'antd'
 import * as commonVar from '../const/CommonVar'
-import {getLoginURL} from "../func/CommonFunc";
+import { getLoginURL } from "../func/CommonFunc";
 
-
-export function exportClassFileByActionID(form, exportActionID, showFilename, query, methodName){
-    exCommonAjaxUtil.exportClassFileByActionID(form, exportActionID, showFilename, query, allActionMap, methodName,scoreServUrl)
+export function exportClassFileByActionID(form, exportActionID, showFilename, query, methodName) {
+    exCommonAjaxUtil.exportClassFileByActionID(form, exportActionID, showFilename, query,
+        allActionMap, methodName, scoreServUrl);
 }
 
 /**
@@ -21,15 +21,15 @@ export function exportClassFileByActionID(form, exportActionID, showFilename, qu
  * @param query target或其他参数
  */
 export function exportFileByActionID(form, exportActionID, showFilename, query) {
-    exCommonAjaxUtil.exportFileByActionID(form, exportActionID, showFilename, query, allActionMap,scoreServUrl)
+    exCommonAjaxUtil.exportFileByActionID(form, exportActionID, showFilename, query, allActionMap, scoreServUrl)
 }
 
-function isUseMockData(actionID, allActionMap){
+function isUseMockData(actionID, allActionMap) {
     return exCommonAjaxUtil.isUseMockData(actionID, GlobalDatasource, allActionMap)
 }
 
-function mockDataIfRequired(actionID){
-    
+function mockDataIfRequired(actionID) {
+
     if (isUseMockData(actionID, allActionMap)) {
         mockDataByUrl(getActionInfo(actionID).url);
     }
@@ -38,7 +38,7 @@ function mockDataIfRequired(actionID){
 var hasPopExprired = false;
 
 //这里添加个登录超时处理函数
-function wrapExpiredFunc( err ){
+function wrapExpiredFunc(err) {
     // return function( XMLHQ,response ){
     //     if( response.status == 911 ) {
 
@@ -74,9 +74,9 @@ function wrapExpiredFunc( err ){
 export function getDataByActionIDAsync(actionID, successFunc?: Function, failFunc?: Function, errorFunc?: Function) {
 
     mockDataIfRequired(actionID);
-    var errFunc = wrapExpiredFunc( errorFunc );
+    var errFunc = wrapExpiredFunc(errorFunc);
 
-    return exCommonAjaxUtil.getDataByActionIDAsync(actionID, successFunc, failFunc, errFunc, allActionMap,scoreServUrl)
+    return exCommonAjaxUtil.getDataByActionIDAsync(actionID, successFunc, failFunc, errFunc, allActionMap, scoreServUrl)
 }
 
 /**
@@ -88,10 +88,10 @@ export function getDataByActionIDAsync(actionID, successFunc?: Function, failFun
  * @param failFunc
  * @param errorFunc
  */
-export function getDataByActionIDWithQueryAsync(actionID, queryObj, successFunc?: Function, failFunc?: Function, errorFunc?: Function):any {
+export function getDataByActionIDWithQueryAsync(actionID, queryObj, successFunc?: Function, failFunc?: Function, errorFunc?: Function): any {
     mockDataIfRequired(actionID);
-    var errFunc = wrapExpiredFunc( errorFunc );
-    return exCommonAjaxUtil.getDataByActionIDWithQueryAsync(actionID, queryObj, successFunc, failFunc, errFunc, allActionMap,scoreServUrl)
+    var errFunc = wrapExpiredFunc(errorFunc);
+    return exCommonAjaxUtil.getDataByActionIDWithQueryAsync(actionID, queryObj, successFunc, failFunc, errFunc, allActionMap, scoreServUrl)
 }
 
 /**
@@ -105,8 +105,8 @@ export function getDataByActionIDWithQueryAsync(actionID, queryObj, successFunc?
  */
 export function getDataByActionID(actionID: string, successFunc?: Function, failFunc?: Function, errorFunc?: Function) {
     mockDataIfRequired(actionID);
-    var errFunc = wrapExpiredFunc( errorFunc );
-    return exCommonAjaxUtil.getDataByActionID(actionID, successFunc, failFunc, errFunc, allActionMap,scoreServUrl);
+    var errFunc = wrapExpiredFunc(errorFunc);
+    return exCommonAjaxUtil.getDataByActionID(actionID, successFunc, failFunc, errFunc, allActionMap, scoreServUrl);
 }
 
 /**
@@ -121,8 +121,8 @@ export function getDataByActionID(actionID: string, successFunc?: Function, fail
  */
 export function getDataByActionIDWithQuery(actionID, queryObj, successFunc?: Function, failFunc?: Function, errorFunc?: Function) {
     mockDataIfRequired(actionID);
-    var errFunc = wrapExpiredFunc( errorFunc );
-    return exCommonAjaxUtil.getDataByActionIDWithQuery(actionID, queryObj, successFunc, failFunc, errFunc, allActionMap,scoreServUrl);
+    var errFunc = wrapExpiredFunc(errorFunc);
+    return exCommonAjaxUtil.getDataByActionIDWithQuery(actionID, queryObj, successFunc, failFunc, errFunc, allActionMap, scoreServUrl);
 }
 
 /**
@@ -131,10 +131,10 @@ export function getDataByActionIDWithQuery(actionID, queryObj, successFunc?: Fun
  */
 export function getDataFromContextByActionID(contextArray, actionID, queryObj) {
     mockDataIfRequired(actionID);
-    return exCommonAjaxUtil.getDataFromContextByActionID(contextArray, actionID, queryObj, allActionMap,scoreServUrl);
+    return exCommonAjaxUtil.getDataFromContextByActionID(contextArray, actionID, queryObj, allActionMap, scoreServUrl);
 }
 
 export function getDataFromContextByActionIDAsync(contextArray, actionID, successFunc, queryObj) {
     mockDataIfRequired(actionID);
-    exCommonAjaxUtil.getDataFromContextByActionIDAsync(contextArray, actionID, successFunc, queryObj, allActionMap,scoreServUrl);
+    exCommonAjaxUtil.getDataFromContextByActionIDAsync(contextArray, actionID, successFunc, queryObj, allActionMap, scoreServUrl);
 }

@@ -58,6 +58,13 @@ const config = {
         ]
     },
 
+    externals: {
+        "react": "React",
+        "react-dom": "ReactDOM",
+        'react-router': 'ReactRouter',
+		'jquery': 'jQuery',
+    },
+
     plugins: [
         new webpack.DefinePlugin({
             'process.evn.NODE_ENV': JSON.stringify("development"),

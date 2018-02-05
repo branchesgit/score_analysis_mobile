@@ -63,7 +63,14 @@ module.exports = {
                 loader: ExtractTextPlugin.extract({fallback:'style-loader', loader:`css-loader!less-loader?{"sourceMap":true,"modifyVars":${JSON.stringify(theme)}}`, publicPath: './'})
             }
         ],
-    },
+	},
+
+	externals: {
+        "react": "React",
+        "react-dom": "ReactDOM",
+        'react-router': 'ReactRouter',
+		'jquery': 'jQuery',
+	},
 	
 	plugins: [
 	    new webpack.NoEmitOnErrorsPlugin(),

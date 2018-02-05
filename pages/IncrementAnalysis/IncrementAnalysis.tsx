@@ -1,10 +1,10 @@
-import * as React from 'react'
+import * as React from "react";
 
-export default class IncrementAnalysis extends React.Component<any,any> {
+export default class IncrementAnalysis extends React.Component<any, any> {
     constructor(props) {
-        super(props)
+        super(props);
     }
     render() {
-        return <div>增量分析</div>
+        return <div>增量分析</div>;
     }
 }

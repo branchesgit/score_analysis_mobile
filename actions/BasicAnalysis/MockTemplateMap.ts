@@ -1,5 +1,5 @@
-import * as Actions from './ActionTypes'
-let mockMapTemp = {}
+import * as Actions from "./ActionTypes";
+let mockMapTemp = {};
 
 mockMapTemp[Actions.GET_SUBJECT_MAP] = {
     "code": 0,
@@ -17,15 +17,15 @@ mockMapTemp[Actions.GET_SUBJECT_MAP] = {
             { "subjectName": "历史", "subjectID": "5" },
             { "subjectName": "地理", "subjectID": "6" },
             { "subjectName": "技术", "subjectID": "7" },
-        ] 
+        ]
     }
-}
+};
 
 mockMapTemp[Actions.GET_GRADE_EXAM_INFO] = {
     "status": "success",
     "result": {
-        "examGrades": [
-            { //考试年级列表
+        "schoolYears": [
+            { // 考试年级列表
                 "examGrade": "2017",
                 "examGradeName": "高二"
             },
@@ -34,7 +34,7 @@ mockMapTemp[Actions.GET_GRADE_EXAM_INFO] = {
                 "examGradeName": "高一"
             }
         ],
-        "gradeExamMap": { //考试年级id与考试场次
+        "gradeExamMap": { // 考试年级id与考试场次
             "2017": [
                 {
                     "examID": "1154",
@@ -49,7 +49,7 @@ mockMapTemp[Actions.GET_GRADE_EXAM_INFO] = {
             }]
         },
 
-        "examSubjMap": { //考试id与考试学科
+        "examSubjMap": { // 考试id与考试学科
             "1154": [
                 { "subjectName": "语文", "subjectID": "8" },
                 { "subjectName": "数学", "subjectID": "9" },
@@ -74,5 +74,6 @@ mockMapTemp[Actions.GET_GRADE_EXAM_INFO] = {
             ]
         }
     }
-}
+};
+
 export const basicAnalysisMockTemplate = mockMapTemp;
