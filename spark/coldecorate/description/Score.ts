@@ -18,7 +18,6 @@ export default class Score extends AbstractDescription {
         let desc = "";
         let i = 0;
         const len = this.icolumns.length;
-
         for (; i < len; i++) {
             desc += this.icolumns[i].getDescription();
             desc += "，";
@@ -31,7 +30,6 @@ export default class Score extends AbstractDescription {
         const ary = [];
         let i = 0;
         const len = this.icolumns.length;
-
         for (; i < len; i++) {
             ary[i] = this.icolumns[i].getColumnName();
         }
